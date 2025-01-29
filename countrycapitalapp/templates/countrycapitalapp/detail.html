@@ -1,142 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detailed information about {{ country|capfirst }}">
-    <title>{{ country|capfirst }} Details</title>
-    <style>
-        /* Maintain same base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+{% extends "countrycapitalapp/base.html" %}
 
-        body {
-            background-color: #f0f2f5;
-            line-height: 1.6;
-            padding: 20px;
-        }
+{% block mytitle %}
+{{ country|capfirst }}
+{% endblock mytitle %}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
 
+{% block mystyle %}
+<style>
+    /* Maintain same base styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f0f2f5;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+        color: #1a237e;
+        margin: 2rem 0;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .details-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        margin: 20px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .detail-item {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+
+    .detail-label {
+        color: #666;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+        color: #333;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        font-weight: 500;
+    }
+
+    .population {
+        color: #1a237e;
+        font-size: 1.4rem;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 2rem;
+        text-decoration: none;
+        color: #1976d2;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+        color: #0d47a1;
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
         h1 {
-            text-align: center;
-            color: #1a237e;
-            margin: 2rem 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 2rem;
         }
-
-        .details-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .detail-item {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .detail-item:last-child {
-            border-bottom: none;
-        }
-
-        .detail-label {
-            color: #666;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .detail-value {
-            color: #333;
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .population {
-            color: #1a237e;
-            font-size: 1.4rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 2rem;
-            text-decoration: none;
-            color: #1976d2;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #0d47a1;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .details-card {
-                padding: 1rem;
-            }
-            
-            .detail-value {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>📋 {{ country|capfirst }} Details</h1>
         
-        <div class="details-card">
-            <div class="detail-item">
-                <div class="detail-label">Country Name</div>
-                <div class="detail-value">{{ country|capfirst }}</div>
-            </div>
-            
-            <div class="detail-item">
-                <div class="detail-label">Capital</div>
-                <div class="detail-value">{{ capital|capfirst }}</div>
-            </div>
-            
-            <div class="detail-item">
-                <div class="detail-label">Population</div>
-                <div class="detail-value population">{{ population }}</div>
-            </div>
-            
-            <div class="detail-item">
-                <div class="detail-label">Official Language</div>
-                <div class="detail-value">{{ language|capfirst }}</div>
-            </div>
-            
-            <div class="detail-item">
-                <div class="detail-label">Currency</div>
-                <div class="detail-value">{{ currency|capfirst }}</div>
-            </div>
-        </div>
+        .container {
+            padding: 0 15px;
+        }
+    }
 
-        <a href="/" class="back-link">← Back to Country List</a>
+    @media (max-width: 480px) {
+        .details-card {
+            padding: 1rem;
+        }
+        
+        .detail-value {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+{% endblock mystyle %}
+
+{% block mybody %}
+<div class="container">
+    <h1>📋 {{ country|capfirst }} Details</h1>
+    
+    <div class="details-card">
+        <div class="detail-item">
+            <div class="detail-label">Country Name</div>
+            <div class="detail-value">{{ country|capfirst }}</div>
+        </div>
+        
+        <div class="detail-item">
+            <div class="detail-label">Capital</div>
+            <div class="detail-value">{{ capital|capfirst }}</div>
+        </div>
+        
+        <div class="detail-item">
+            <div class="detail-label">Population</div>
+            <div class="detail-value population">{{ population }}</div>
+        </div>
+        
+        <div class="detail-item">
+            <div class="detail-label">Official Language</div>
+            <div class="detail-value">{{ language|capfirst }}</div>
+        </div>
+        
+        <div class="detail-item">
+            <div class="detail-label">Currency</div>
+            <div class="detail-value">{{ currency|capfirst }}</div>
+        </div>
     </div>
-</body>
-</html>
+
+    <a href="/" class="back-link">← Back to Country List</a>
+</div>
+{% endblock mybody %}
