@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed information about {{ country|capfirst }}">
+    <title>{{ country|capfirst }} Details</title>
+    <style>
+  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 {{ country|capfirst }} Details</h1>
+        
+        <div class="details-card">
+            <div class="detail-item">
+                <div class="detail-label">Country Name</div>
+                <div class="detail-value">{{ country|capfirst }}</div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-label">Capital</div>
+                <div class="detail-value">{{ capital|capfirst }}</div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-label">Population</div>
+                <div class="detail-value population">{{ population }}</div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-label">Official Language</div>
+                <div class="detail-value">{{ language|capfirst }}</div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-label">Currency</div>
+                <div class="detail-value">{{ currency|capfirst }}</div>
+            </div>
+        </div>
+
+        <a href="/" class="back-link">← Back to Country List</a>
+    </div>
+</body>
+</html>

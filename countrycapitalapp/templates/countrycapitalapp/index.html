@@ -1,94 +1,19 @@
 {% extends "countrycapitalapp/base.html" %}
-
+{% load static %}
 
 {% block mytitle %}Country Info - Top 20 Population{% endblock mytitle %}
 
-
 {% block mystyle %}
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-        background-color: #f0f2f5;
-        line-height: 1.6;
-        padding: 20px;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    h1 {
-        text-align: center;
-        color: #1a237e;
-        margin: 2rem 0;
-        font-size: 2.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .country-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-        padding: 20px;
-    }
-
-    .country-card {
-        background: white;
-        border-radius: 10px;
-        padding: 1.5rem;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .country-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-
-    .country-card a {
-        text-decoration: none;
-        color: #1976d2;
-        font-weight: 500;
-        font-size: 1.1rem;
-        display: block;
-        transition: color 0.3s ease;
-    }
-
-    .country-card a:hover {
-        color: #0d47a1;
-        text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-        .country-grid {
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        }
-        
-        h1 {
-            font-size: 2rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .country-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{% static 'countrycapitalapp/css/home.css' %}">
 {% endblock mystyle %}
-
 
 {% block mybody %}
 <div class="container">
     <h1>🌍 Top 20 Most Populated Countries</h1>
+    {% comment %} Logo {% endcomment %}
+    <div class="image-container">
+        <img src="{% static '/images/logo.png' %}" alt="World" class="world-logo" height="100" width="100">
+    </div>
     <div class="country-grid">
         {% for country in countries %}
             <div class="country-card">
@@ -97,5 +22,6 @@
         {% endfor %}
     </div>
 </div>
+<script src="{% static 'countrycapitalapp/js/script.js' %}"> </script>
 {% endblock mybody %}
 

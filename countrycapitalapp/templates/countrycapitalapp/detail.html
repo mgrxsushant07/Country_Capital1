@@ -1,4 +1,5 @@
 {% extends "countrycapitalapp/base.html" %}
+{% load static %}
 
 {% block mytitle %}
 {{ country|capfirst }}
@@ -6,105 +7,7 @@
 
 
 {% block mystyle %}
-<style>
-    /* Maintain same base styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-        background-color: #f0f2f5;
-        line-height: 1.6;
-        padding: 20px;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    h1 {
-        text-align: center;
-        color: #1a237e;
-        margin: 2rem 0;
-        font-size: 2.5rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .details-card {
-        background: white;
-        border-radius: 10px;
-        padding: 2rem;
-        margin: 20px 0;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .detail-item {
-        margin: 1.5rem 0;
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-    }
-
-    .detail-item:last-child {
-        border-bottom: none;
-    }
-
-    .detail-label {
-        color: #666;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-    }
-
-    .detail-value {
-        color: #333;
-        font-size: 1.2rem;
-        margin-top: 0.5rem;
-        font-weight: 500;
-    }
-
-    .population {
-        color: #1a237e;
-        font-size: 1.4rem;
-    }
-
-    .back-link {
-        display: inline-block;
-        margin-top: 2rem;
-        text-decoration: none;
-        color: #1976d2;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .back-link:hover {
-        color: #0d47a1;
-        text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 2rem;
-        }
-        
-        .container {
-            padding: 0 15px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .details-card {
-            padding: 1rem;
-        }
-        
-        .detail-value {
-            font-size: 1.1rem;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{% static 'countrycapitalapp/css/detail.css' %}">
 {% endblock mystyle %}
 
 {% block mybody %}
