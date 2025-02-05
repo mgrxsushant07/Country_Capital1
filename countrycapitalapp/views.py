@@ -24,3 +24,7 @@ def detail(request, country):
         })
     else:
         return HttpResponse('<h2>Country not found</h2>')
+
+# Create Dictonary Wesbite Django
+# Tips: Models [word, meaning]
+# Create View 
