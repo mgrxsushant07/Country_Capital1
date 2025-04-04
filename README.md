@@ -1,6 +1,8 @@
 Task
 # Create Dictonary Wesbite Django
 # Tips: Models [word, meaning]
+
+
 #### Clone the Repo
 ### Build The Image
 This reads your Dockerfile and creates a Docker image.
